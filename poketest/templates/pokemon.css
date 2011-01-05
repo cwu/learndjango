@@ -1,0 +1,5 @@
+{% for pokemon in pokedex %}
+    .pokemon_{{ pokemon.name }} {
+        background: transparent url({{ pokemon.sprite.uri }}) {{ pokemon.sprite.left }} {{ pokemon.sprite.top }} no-repeat;
+    }
+{% endfor %}
