@@ -1,13 +1,13 @@
 from django.db import models
 
+class PokeSprite(models.Model):
+    uri = models.CharField(max_length=200)
+    row = models.IntegerField()
+    col = models.IntegerField()
+
 class PokeInfo(models.Model):
     name = models.CharField(max_length=100)
-
-class PokeSprite(models.Model):
-    sprint_uri = models.CharField(max_length=200)
-    sprite_row = models.IntegerField()
-    sprite_col = models.IntegerField()
-    poke_info  = models.ForeignKey(PokeInfo)
+    sprite = models.ForeignKey(PokeSprite)
 
 class PokeMoveInfo(models.Model):
     name        = models.CharField(max_length=50)

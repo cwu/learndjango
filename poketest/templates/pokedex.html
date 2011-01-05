@@ -1,8 +1,28 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<style type="text/css">
+    .pokemon_{{ pokemon.name|lower }} {
+        width: 40px;
+        height: 40px;
+        background-image: url(http://www.deviantart.com/download/137228201/pokemon_all_pokemon_sprites_by_darkswabber.png);
+        background-position: -20px 20px;
+    }
+</style>
+{% endblock %}
+
+
+{% block title %}
+Pokedex - {{ pokemon.name }}
+{% endblock %}
+
+{% block content %}
 <div class="pokemon">
-    <div class="pokemon_{{ pokemon.name }}"></div>
+    <div class="pokemon_{{ pokemon.name|lower }}"></div>
     <ul class="pokedex_entry">
         <li>Name: {{ pokemon.name }} </li>
         <li></li>
         <li></li>
     </ul>
 </div>
+{% endblock %}

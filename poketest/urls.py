@@ -1,5 +1,7 @@
 from django.conf.urls.defaults import patterns
 
-urlpatterns = patterns('dahsboard.poketest.views',
-        (r'^show/(\d+)/$', show),
+urlpatterns = patterns('learndjango.poketest.views',
+        (r'^pokedex/$', 'pokedex_show'),
+        (r'^pokedex/(?P<name>\w+)/$', 'pokedex_lookup'),
 )
+
