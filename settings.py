@@ -3,7 +3,8 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PROJ_ROOT='/home/chris/projects/learndjango'
+#PROJ_ROOT='/home/chris/projects/learndjango'
+PROJ_ROOT='/home/admin/learndjango'
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

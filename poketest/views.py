@@ -15,10 +15,23 @@ def pokedex_show(request):
 def pokedex_lookup(request, name):
     try:
         pokemon = PokeInfo.objects.get(name__iexact=name)
+        try:
+            prev = PokeInfo.objects.get(id=pokemon.id-1).name
+        except (PokeInfo.DoesNotExist):
+            prev = None
+
+        try:
+            next = PokeInfo.objects.get(id=pokemon.id+1).name
+        except (PokeInfo.DoesNotExist):
+            next = None
+
         params = { 
             'found' : True,
             'pokemon' : {
                 'name' : pokemon.name,
+                'next' : next,
+                'prev' : prev,
+                'description': pokemon.description,
                 'sprite' : {
                     'row': pokemon.sprite.row,
                     'col':  pokemon.sprite.col,

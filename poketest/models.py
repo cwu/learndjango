@@ -7,6 +7,7 @@ class PokeSprite(models.Model):
 
 class PokeInfo(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=400)
     sprite = models.ForeignKey(PokeSprite)
 
 class PokeMoveInfo(models.Model):

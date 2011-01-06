@@ -4,6 +4,10 @@ body {
   background: #aaa;
 }
 
+.clear {
+  clear: both;
+}
+
 .container {
   width: 710px;
   margin: auto;
