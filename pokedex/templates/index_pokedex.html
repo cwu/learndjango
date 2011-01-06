@@ -11,7 +11,7 @@
   <ul>
   {% for p in pokemon %}
     <li>
-     {{ p.id }} <a href="/poke/pokedex/{{ p.name }}">{{ p.name }}</a>
+    {{ p.id }} <a href="{% url pokedex.views.lookup p.name|lower %}">{{ p.name }}</a>
     </li>
   {% endfor %}
   </ul>

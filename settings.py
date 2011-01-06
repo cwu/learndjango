@@ -77,6 +77,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     PROJ_ROOT + '/templates',
     PROJ_ROOT + '/poketest/templates',
+    PROJ_ROOT + '/pokedex/templates',
 )
 
 INSTALLED_APPS = (

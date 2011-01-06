@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^poke/', include('learndjango.poketest.urls')),
+    (r'^pokedex/', include('learndjango.pokedex.urls')),
     
 )
 

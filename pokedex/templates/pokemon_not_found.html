@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/css/pokedex.css" />
+{% endblock %}
+
+{% block title %} Pokemon Not found {% endblock %}
+
+{% block content %}
+  <div class="pokedex_entry round">
+    <div id="pokemon_not_found">
+      Sorry, Could not find the pokemon "{{ name }}"
+      <a href="{% url pokedex.views.show %}"> Back to pokedex </a>
+    </div>
+  </div>
+{% endblock %}

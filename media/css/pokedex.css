@@ -18,3 +18,17 @@
   color: #fff;
 }
 
+.pokedex_index {
+  background: #faa;
+  padding: 8px;
+}
+
+.pokedex_index a {
+  color: #08f;
+  text-decoration: none;
+}
+
+#pokemon_not_found {
+  padding: 5px;
+}
+
