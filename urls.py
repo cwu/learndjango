@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^poke/', include('learndjango.poketest.urls')),
     (r'^pokedex/', include('learndjango.pokedex.urls')),
+    (r'^battle/', include('learndjango.battle.urls')),
     
 )
 

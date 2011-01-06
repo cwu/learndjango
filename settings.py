@@ -78,6 +78,7 @@ TEMPLATE_DIRS = (
     PROJ_ROOT + '/templates',
     PROJ_ROOT + '/poketest/templates',
     PROJ_ROOT + '/pokedex/templates',
+    PROJ_ROOT + '/battle/templates',
 )
 
 INSTALLED_APPS = (
@@ -88,6 +89,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
     'poketest',
+    'pokedex',
+    'battle',
 )
 
 STATIC_DOC_ROOT = PROJ_ROOT + '/media'
