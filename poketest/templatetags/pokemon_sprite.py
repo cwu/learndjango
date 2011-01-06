@@ -1,5 +1,5 @@
 from django import template
-from learndjango.poketest.models import (PokeInfo,Pokemon)
+from poketest.models import (PokeInfo,Pokemon)
 
 register = template.Library()
 

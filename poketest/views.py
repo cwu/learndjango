@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
-from learndjango.poketest.models import *
-from learndjango.poketest.forms import *
+from poketest.models import *
+from poketest.forms import *
 
 def fork_get_post(request, GET=None, POST=None):
     if request.method == 'GET' and GET is not None:

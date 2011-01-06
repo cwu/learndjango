@@ -1,4 +1,4 @@
-ul.pokelist li {
+ul.pokelist li.poke_elem {
   position: relative;
   width:  300px;
   height: 100px;
@@ -11,14 +11,14 @@ ul.pokelist li {
   margin-bottom: 10px;
 }
 
-ul.pokelist li .poke_img {
+ul.pokelist li.poke_elem .poke_img {
   position: absolute;
   top: 0px;
   left: 0px;
   margin: 10px;
 }
 
-ul.pokelist li .poke_text {
+ul.pokelist li.poke_elem .poke_text {
   position: absolute;
   top: 0px;
   left: 100px;
@@ -29,12 +29,28 @@ ul.pokelist li .poke_text {
   font-size: 10px;
 }
 
-ul.pokelist li .poke_text h2 {
+ul.pokelist li.poke_elem .poke_text h2 {
   margin: 0;
   font-size: 20px;
   font-weight: bold;
 }
 
-ul.pokelist li .poke_text p {
+ul.pokelist li.poke_elem .poke_text p {
   margin: 0;
+}
+
+.hp {
+  font-size: 2em;
+}
+
+.high_hp {
+  color: green;
+}
+
+.medium_hp {
+  color: yellow;
+}
+
+.low_hp {
+  color: red;
 }

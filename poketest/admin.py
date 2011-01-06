@@ -1,5 +1,5 @@
 from django.contrib import admin
-from learndjango.poketest.models import *
+from poketest.models import *
 
 class PokeInfoAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description')
