@@ -2,15 +2,9 @@
   position: relative;
 }
 
-.pokedex_entry {
-  left: 0px;
-  position: relative;
+#pokedex .pokelist li {
   margin: auto;
-  width:  300px;
-  height: 100px;
-  background: #faa;
 }
-
 .pokedex_prev {
   position: absolute;
   left: 0px;
@@ -24,35 +18,3 @@
   color: #fff;
 }
 
-.pokedex_entry .poke_text {
-  position: absolute;
-  top: 0px;
-  left: 100px;
-  margin: 10px 0;
-  height: 80px;
-  width: 170px;
-}
-
-.pokedex_entry h2 {
-  margin: 0;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.pokedex_entry p {
-  font-size: 0.5em;
-}
-
-.pokedex_index {
-  background: #faa;
-  padding: 8px;
-}
-
-.pokedex_index a {
-  color: #08f;
-  text-decoration:none
-}
-
-#pokemon_not_found {
-  padding: 5px;
-}

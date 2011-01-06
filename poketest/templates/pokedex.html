@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load pokemon_sprite %}
 
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="/static/css/poke_img.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/pokedex.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/pokelist.css" />
 {% endblock %}
 
 
@@ -11,23 +13,25 @@
 {% block content %}
 {% if found %}
   <div id="pokedex">
-    {% if pokemon.prev %}
-      <a href="/poke/pokedex/{{ pokemon.prev|lower }}" class="pokedex_prev">
-        <img src="/static/img/pokedex_prev.png" alt="{{ pokemon.prev }}" />
+    {% if prev %}
+      <a href="/poke/pokedex/{{ prev|lower }}" class="pokedex_prev">
+        <img src="/static/img/pokedex_prev.png" alt="{{ prev }}" />
       </a>
     {% endif %}
 
-    <div class="pokedex_entry round">
-      <div class="poke_img p_img_{{ pokemon.sprite.row }}_{{ pokemon.sprite.col }}"></div>
-      <div class="poke_text">
-        <h2><span class="poke_name" > {{ pokemon.name }} </span> </h2>
-        <p>{{ pokemon.description }}</p>
-      </div>
-    </div>
+    <ul class="pokelist">
+      <li>
+        <div class="poke_img p_img_{{ pokemon|sprite }}"></div>
+        <div class="poke_text">
+          <h2><span class="poke_name" > {{ pokemon.name }} </span> </h2>
+          <p>{{ pokemon.description }}</p>
+        </div>
+      </li>
+    </ul>
 
-    {% if pokemon.next %}
-      <a href="/poke/pokedex/{{ pokemon.next|lower }}" class="pokedex_next">
-        <img src="/static/img/pokedex_next.png" alt="{{ pokemon.next }}" />
+    {% if next %}
+      <a href="/poke/pokedex/{{ next|lower }}" class="pokedex_next">
+        <img src="/static/img/pokedex_next.png" alt="{{ next }}" />
       </a>
     {% endif %}
     <div class="clear" />

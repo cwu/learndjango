@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load pokemon_sprite %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/css/poke_img.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/pokelist.css" />
+{% endblock %}
+
+
+{% block title %} Trainer - {{ trainer.name }} {% endblock %}
+
+{% block content %}
+<div id="trainer">
+  <h1>{{ trainer.name }}</h1>
+  <ul class="pokelist">
+    {% for pokemon in trainer.owned_pokemon %}
+      <li>
+        <div class="poke_img p_img_{{ pokemon|sprite }}"></div>
+        <div class="poke_text">
+          <h2><span class="poke_name" > {{ pokemon.info.name }} </span> </h2>
+          <p>{{ pokemon.info.description }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+#battle_container {
+  background: pink;
+  padding: 10px;
+}
+
+#poke_display {
+  width: 600px;
+  margin: auto;
+  position: relative;
+  height: 200px;
+  background: white;
+}
+
+#poke_display .center_container {
+  margin: auto;
+  width: 100px;
+}
+
+#poke_display .col_left {
+  position: absolute;
+  width: 33%;
+  left: 0;
+}
+
+#poke_display .col_center {
+  position: absolute;
+  width: 33%;
+  left: 33%;
+  text-align: center;
+  vertical-align: center;
+}
+
+#poke_display h3 {
+  font-size: 4em;
+}
+
+#poke_display .col_right {
+  position: absolute;
+  width: 33%;
+  left: 66%;
+}
+
+#poke_display p {
+  font-size: 1em;
+}
+
+#battle_container .center_container {
+  text-align: center;
+}
+
+#battle_container .center_container textarea {
+  width: 400px;
+  height: 200px;
+}
+
+#poke_moves {
+  margin: 20px;
+  text-align: center;
+}
+
+a.move_btn {
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  background: #006400;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 40px;
+  display: inline-block;
+}
+
+.high_hp {
+  color: green;
+}
+
+.medium_hp {
+  color: yellow;
+}
+
+.low_hp {
+  color: red;
+}

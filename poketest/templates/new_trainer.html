@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+
+{% block title %} New Trainer {% endblock %}
+
+{% block content %}
+<div id="trainer">
+  <h1>{{ trainer.name }}</h1>
+  <ul>
+    {% for pokemon in trainer.pokemon_set %}
+      <li>
+        <div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

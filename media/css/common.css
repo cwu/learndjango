@@ -8,6 +8,10 @@ body {
   clear: both;
 }
 
+.center_container {
+  margin: auto;
+}
+
 .container {
   width: 710px;
   margin: auto;
@@ -31,10 +35,6 @@ ul {
 }
 
 .poke_img {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin: 10px;
   width: 80px;
   height: 80px;
 }
