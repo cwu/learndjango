@@ -2,7 +2,7 @@
   position: relative;
   width:  300px;
   height: 100px;
-  background: red;
+  background: #faa;
 }
 
 .pokedex_entry ul {
@@ -22,3 +22,11 @@
   padding: 8px;
 }
 
+.pokedex_index a {
+  color: #08f;
+  text-decoration:none
+}
+
+#pokemon_not_found {
+  padding: 5px;
+}
