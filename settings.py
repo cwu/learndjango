@@ -3,6 +3,8 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+PROJ_ROOT='/home/chris/projects/learndjango'
+
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
@@ -37,7 +39,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/chris/projects/learndjango/media'
+MEDIA_ROOT = PROJ_ROOT + '/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -73,8 +75,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     #'/home/admin/learndjango/templates',
     #'/home/admin/learndjango/poketest/templates',
-    '/home/chris/projects/learndjango/templates',
-    '/home/chris/projects/learndjango/poketest/templates',
+    PROJ_ROOT + '/templates',
+    PROJ_ROOT + '/poketest/templates',
 )
 
 INSTALLED_APPS = (
@@ -86,3 +88,5 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     'poketest',
 )
+
+STATIC_DOC_ROOT = PROJ_ROOT + '/media'

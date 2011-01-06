@@ -22,6 +22,6 @@ urlpatterns = patterns('',
 if settings.DEBUG:
     urlpatterns += patterns('',
             (r'^static/(?P<path>.*)$', 'django.views.static.serve', 
-        { 'document_root': '/home/chris/projects/learndjango/media',
+        { 'document_root': settings.STATIC_DOC_ROOT,
               'show_indexes': True
             }),)
