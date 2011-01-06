@@ -10,10 +10,16 @@
 
 {% block content %}
 <div class="pokedex_entry round">
-  <div class="poke_img p_img_{{ pokemon.sprite.row }}_{{ pokemon.sprite.col }}"></div>
+  {% if found %}
+    <div class="poke_img p_img_{{ pokemon.sprite.row }}_{{ pokemon.sprite.col }}"></div>
     <ul>
         <li><span class="poke_name" > {{ pokemon.name }} </span> </li>
     </ul>
+  {% else %}
+    <div id="pokemon_not_found">
+      Sorry, Could not find the pokemon "{{ name }}"
+    </div>
+  {% endif %}
 </div>
 {% endblock %}
 
