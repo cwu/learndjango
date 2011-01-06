@@ -1,0 +1,24 @@
+.pokedex_entry {
+  position: relative;
+  width:  300px;
+  height: 100px;
+  background: red;
+}
+
+.pokedex_entry ul {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  margin: 10px 0;
+  height: 100px;
+}
+
+.pokedex_entry .poke_name {
+  font-weight: bold;
+}
+
+.pokedex_index {
+  background: #faa;
+  padding: 8px;
+}
+

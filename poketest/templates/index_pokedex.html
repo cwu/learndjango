@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/css/pokedex.css" />
+{% endblock %}
+
+{% block title %} Pokedex {% endblock %}
+
+{% block content %}
+<div class="pokedex_index round">
+  <ul>
+  {% for p in pokemon %}
+    <li>
+     {{ p.id }} <a href="/poke/pokedex/{{ p.name }}">{{ p.name }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

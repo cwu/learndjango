@@ -6,7 +6,11 @@ def ajax_create_poke_info(request):
     return ''
 
 def pokedex_show(request):
-    return render_to_response('pokedex_index.html')
+    pokedex_entries = PokeInfo.objects.all()
+    params = {
+        'pokemon': pokedex_entries,
+    }
+    return render_to_response('index_pokedex.html', params)
 
 def pokedex_lookup(request, name):
     pokemon = PokeInfo.objects.get(name__iexact=name)
@@ -14,9 +18,8 @@ def pokedex_lookup(request, name):
         'pokemon' : {
             'name' : pokemon.name,
             'sprite' : {
-                'uri':  pokemon.sprite.uri,
-                'left': pokemon.sprite.col * 40 + 40,
-                'top':  pokemon.sprite.row * 40,
+                'row': pokemon.sprite.row,
+                'col':  pokemon.sprite.col,
             },
         },
     }

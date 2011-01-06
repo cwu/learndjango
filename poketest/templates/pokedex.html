@@ -1,28 +1,19 @@
 {% extends "base.html" %}
 
 {% block stylesheets %}
-<style type="text/css">
-    .pokemon_{{ pokemon.name|lower }} {
-        width: 40px;
-        height: 40px;
-        background-image: url(http://www.deviantart.com/download/137228201/pokemon_all_pokemon_sprites_by_darkswabber.png);
-        background-position: -20px 20px;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="/static/css/poke_img.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/pokedex.css" />
 {% endblock %}
 
 
-{% block title %}
-Pokedex - {{ pokemon.name }}
-{% endblock %}
+{% block title %} Pokedex - {{ pokemon.name }} {% endblock %}
 
 {% block content %}
-<div class="pokemon">
-    <div class="pokemon_{{ pokemon.name|lower }}"></div>
-    <ul class="pokedex_entry">
-        <li>Name: {{ pokemon.name }} </li>
-        <li></li>
-        <li></li>
+<div class="pokedex_entry round">
+  <div class="poke_img p_img_{{ pokemon.sprite.row }}_{{ pokemon.sprite.col }}"></div>
+    <ul>
+        <li><span class="poke_name" > {{ pokemon.name }} </span> </li>
     </ul>
 </div>
 {% endblock %}
+

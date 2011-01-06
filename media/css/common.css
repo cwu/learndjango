@@ -1,0 +1,37 @@
+body {
+  font-weight: normal;
+  font: 1em 'Lucida Grande', sans-serif;
+  background: #aaa;
+}
+
+.container {
+  width: 710px;
+  margin: auto;
+}
+
+#main {
+  margin: 10px;
+  padding: 20px;
+  background: #FFF;
+}
+
+.round {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 10px;
+}
+
+.poke_img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+}
+
