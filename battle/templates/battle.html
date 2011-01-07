@@ -7,16 +7,14 @@
 {% endblock %}
 
 {% block javascripts %}
-<script type="text/javascript">
-{% include "battle.js" %}
-</script>
+<script type="text/javascript" src="/static/js/battle.js"></script>
 {% endblock %}
 
 {% block title %} Poke Battle!{% endblock %}
 
 {% block content %}
 
-<div id="battle_container">
+<div id="battle_container" battle_id={{ battle.id }} battle_move_url="{% url battle.views.ajax_move %}">
 	<div id="poke_display" class="round">
     <div class="col_left col">
       <h2> {{ player.name }}</h2>

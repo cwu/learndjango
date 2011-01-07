@@ -40,7 +40,7 @@ def new(request):
         form = PartialBattleForm()
     return render_to_response("new_battle.html", { 'form' : form })
 
-@login_required
+#@login_required
 def ajax_move(request):
     # should pass in move info id to check for race conditions
     for value in [ 'battle_id', 'move' ]:
@@ -95,7 +95,7 @@ def ajax_move(request):
     return ajaxSuccess(response)
 
 
-@login_required
+#@login_required
 def battle(request, battle_id):
 
     battle = PokeBattle.objects.get(id=battle_id)
