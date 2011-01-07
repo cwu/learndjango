@@ -32,7 +32,7 @@ class Pokemon(models.Model):
     hp_left   = models.IntegerField()
     move_1    = models.ForeignKey(PokeMove,related_name="pokemon1")
     move_2    = models.ForeignKey(PokeMove,related_name="pokemon2")
-    trainer   = models.ForeignKey(PokeTrainer, null=True)
+    trainer   = models.ForeignKey(PokeTrainer,blank=True,null=True)
 
     def attack(self, pokemon, move):
         if move != self.move_1 and move != self.move_2:
@@ -42,6 +42,14 @@ class Pokemon(models.Model):
 
         damage = int( 0.2 * self.level * move.power )
         pokemon.hp_left = max(0, pokemon.hp_left - damage)
+
+        return damage
+
+    def save(self):
+        if self.move_1 == self.move_2:
+            raise Exception, "Move 1 and 2 must be different"
+
+        super(Pokemon, self).save()
 
     def restore_hp(self, hp=1000):
         self.hp_left = max(self.max_hp, self.hp_left + hp)
@@ -53,25 +61,36 @@ class Pokemon(models.Model):
         return self.info.name;
 
 class PokeBattle(models.Model):
-    player1         = models.ForeignKey(PokeTrainer,related_name="player1")
-    player2         = models.ForeignKey(PokeTrainer,related_name="player2")
-    pokemon1        = models.ForeignKey(Pokemon,related_name="pokemon1")
-    pokemon2        = models.ForeignKey(Pokemon,related_name="pokemon2")
+    player1         = models.ForeignKey(PokeTrainer,related_name="battles_1")
+    player2         = models.ForeignKey(PokeTrainer,related_name="battles_2")
     current_player  = models.ForeignKey(PokeTrainer,related_name="current_turn")
     history         = models.CharField(max_length=1000,blank=True)
 
     def move(self, move):
+        current_player = self.current_player
         if self.current_player == self.player1:
-            attacking, defending = self.pokemon1, self.pokemon2
+            attacking, defending = self.player1.current_pokemon, self.player2.current_pokemon
+            other_player = self.player2
         else:
-            attacking, defending = self.pokemon2, self.pokemon1
+            attacking, defending = self.player2.current_pokemon, self.player1.current_pokemon
+            other_player = self.player1
 
-        attacking.attack(defending, move)
+        damage = attacking.attack(defending, move)
 
-        if self.current_player == self.player1:
-            self.current_player = self.player2
-        else:
-            self.current_player = self.player1
+        self.current_player = other_player
+
+        commentary = "%s's %s attacked %s with %s doing %d damage\n" %(current_player.name, current_player.current_pokemon.info.name, other_player.current_pokemon.info.name, move.name, damage)
+
+        
+        self.history = (commentary + self.history)[:1000]
+
+        return commentary
+
+    def save(self):
+        if self.player1 == self.player2:
+            raise Exception, "Player 1 and 2 must be different"
+
+        super(PokeBattle, self).save()
 
 
     def __unicode__(self):

@@ -8,21 +8,7 @@
 
 {% block javascripts %}
 <script type="text/javascript">
-  function makeMove(move_num)
-  {
-    $.ajax({  url: "{% url battle.views.ajax_move %}",
-              type: 'POST',
-              data: {
-                battle_id: {{ battle.id }},
-                move: move_num,
-              },
-              success: function(data) { window.location.reload() },
-              error: function(xhr, msg, err) { alert(msg + "|" + err); }
-           });
-  }
-
-  $("#move1").live("click", function() { makeMove('1'); });
-  $("#move2").live("click", function() { makeMove('2'); });
+{% include "battle.js" %}
 </script>
 {% endblock %}
 
@@ -32,40 +18,34 @@
 
 <div id="battle_container">
 	<div id="poke_display" class="round">
-    <div class="col_left">
-      <div class="center_container">
-        <h2> {{ player.name }}</h2>
-        <div class="poke_img p_img_{{ player.current_pokemon|sprite }}"></div>
-        <p id="player_hp">HP: 
-          <span class="high_hp">
-            {{ player.current_pokemon.hp_left }}/{{ player.current_pokemon.max_hp}}
-          </span>
-        </p>
+    <div class="col_left col">
+      <h2> {{ player.name }}</h2>
+      <div class="poke_img p_img_{{ player.current_pokemon|sprite }}"></div>
+      <div id="player_hp" class="hp_display">HP: 
+        <span class="high_hp">
+          <span id="player_hp_left">{{ player.current_pokemon.hp_left }}</span>/{{ player.current_pokemon.max_hp}}
+        </span>
       </div>
     </div>
-    <div class="col_center">
-      <div class="center_container">
-        <h3> VS </h3>
-      </div>
+    <div class="col_center col">
+      <h3> VS </h3>
     </div>
-    <div class="col_right">
-      <div class="center_container">
-        <h2> {{ opponent.name }}</h2>
-        <div class="poke_img p_img_{{ opponent.current_pokemon|sprite }}"></div>
-        <p id="opponent_hp">HP:
-          <span class="high_hp">
-            {{ opponent.current_pokemon.hp_left }}/{{ opponent.current_pokemon.max_hp}}
-          </span>
-        </p>
+    <div class="col_right col">
+      <h2> {{ opponent.name }}</h2>
+      <div class="poke_img p_img_{{ opponent.current_pokemon|sprite }}"></div>
+      <div id="opponent_hp" class="hp_display">HP:
+        <span class="high_hp">
+          <span id="opponent_hp_left">{{ opponent.current_pokemon.hp_left }}</span>/{{ opponent.current_pokemon.max_hp}}
+        </span>
       </div>
     </div>
 	</div>
   <div id="poke_moves">
-    <a id="move1" href="#" class="round move_btn">{{ player.current_pokemon.move_1 }}</a>
-    <a id="move2" href="#" class="round move_btn">{{ player.current_pokemon.move_2 }}</a>
+    <a id="move1" href="#" class="round move_btn">{{ battle.current_player.current_pokemon.move_1 }}</a>
+    <a id="move2" href="#" class="round move_btn">{{ battle.current_player.current_pokemon.move_2 }}</a>
   </div>
   <div class="center_container">
-    <textarea rows="10" readonly="true">{{ battle_history }}</textarea>
+    <textarea id="battle_history" rows="10" readonly="true">{{ battle.history }}</textarea>
   </div>
 </div>
 

@@ -11,9 +11,12 @@
   background: white;
 }
 
-#poke_display .center_container {
+#poke_display {
+  text-align: center;
+}
+
+#poke_display .poke_img {
   margin: auto;
-  width: 100px;
 }
 
 #poke_display .col_left {
@@ -40,8 +43,9 @@
   left: 66%;
 }
 
-#poke_display p {
+#poke_display .hp_display  {
   font-size: 1em;
+  width: 100%;
 }
 
 #battle_container .center_container {

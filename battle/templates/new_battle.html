@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block title %} New Poke Battle! {% endblock %}
+
+{% block content %}
+<h1>New Battle</h1>
+{% if form.errors %}
+  <p id="errors">
+    Please correct the error{{ form.errors|pluralize }} below.
+  </p>
+{% endif %}
+
+<form action="" method="post">
+  <div class="field"
+    {{ form.player1.errors }}
+    <label for="id_player1">Trainer 1:</label>
+    {{ form.player1 }}
+  </div>
+  <div class="field"
+    {{ form.player2.errors }}
+    <label for="id_player1">Trainer 2:</label>
+    {{ form.player2 }}
+  </div>
+  <input type="submit" value="New Battle!" />
+</form>
+{% endblock %}
