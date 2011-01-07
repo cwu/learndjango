@@ -13,8 +13,6 @@ def ajax_create_poke_info(request):
     name = request.POST['poke_name']
     return ''
 
-
-
 def show_trainer(request, name):
     try:
         trainer = PokeTrainer.objects.get(name=name)
